@@ -54,7 +54,9 @@ jobs:
         REPO_URL: https://github.com/bingdao1/lede
         REPO_BRANCH: master
         CONFIG_FILE: 'k2pconfig'
-      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+      run:
+          git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+      run:
            [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
     - name: Update & Install feeds
       working-directory: ./openwrt
