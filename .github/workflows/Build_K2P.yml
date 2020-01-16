@@ -67,7 +67,7 @@ jobs:
     - name: Configuration Customization - Build_K2P
       run: |
         chmod +x ./customize.sh && ./customize.sh
-        cd openwrt && make defconfig
+        cd openwrt
         
     - name: Download package
       working-directory: ./openwrt
