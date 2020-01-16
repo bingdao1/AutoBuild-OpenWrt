@@ -92,5 +92,3 @@ jobs:
       with:
         name: OpenWrt
         path: openwrt/bin
-© 2020 GitHub, Inc.
-
