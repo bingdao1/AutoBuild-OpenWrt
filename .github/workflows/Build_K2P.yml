@@ -56,9 +56,13 @@ jobs:
         CONFIG_FILE: 'k2pconfig'
       run:
           git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+          
           pwd
+          
           rm openwrt/.config
+          
           mv $CONFIG_FILE openwrt/.config
+          
           ls openwrt/.config
     - name: Update & Install feeds
       working-directory: ./openwrt
