@@ -57,11 +57,9 @@ jobs:
       run:
           git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
           
-          pwd
-          
-          rm openwrt/.config
-          
           mv $CONFIG_FILE openwrt/.config
+          
+          pwd
           
           ls openwrt/.config
     - name: Update & Install feeds
