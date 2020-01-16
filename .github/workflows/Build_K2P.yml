@@ -53,8 +53,9 @@ jobs:
       env: 
         REPO_URL: https://github.com/bingdao1/lede
         REPO_BRANCH: master
+        CONFIG_FILE: 'k2pconfig'
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-
+           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
@@ -62,12 +63,9 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
     - name: Configuration Customization - Build_K2P
-      env:
-        CONFIG_FILE: 'k2pconfig'
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
-        cd openwrt && make
+        cd openwrt # && make
         
     - name: Download package
       working-directory: ./openwrt
